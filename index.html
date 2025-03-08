@@ -1,65 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scary Image Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100vh;
-      background-color: #000;
-      color: #fff;
-    }
-    .ghost-image {
-      display: none;
-      max-width: 100%;
-      height: auto;
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>귀신 사진 사이트</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>나는 로봇이 아닙니다</h1>
-  <form id="captchaForm">
-    <label>
-      <input type="checkbox" id="notRobot" />
-      체크박스 클릭
-    </label>
-    <p id="warning" style="display: none; color: red;">무서운 이미지가 나타날 수 있습니다!</p>
-  </form>
-  <img id="ghostImage" class="ghost-image" src="" alt="Scary Ghost Image" />
-
-  <script>
-    const checkbox = document.getElementById("notRobot");
-    const warning = document.getElementById("warning");
-    const ghostImage = document.getElementById("ghostImage");
-
-    const ghostImages = [
-      "ghost1.jpg", // 여기에 무서운 이미지를 추가하세요
-      "ghost2.jpg",
-      "ghost3.jpg",
-    ];
-
-    checkbox.addEventListener("change", function() {
-      if (checkbox.checked) {
-        warning.style.display = "block";
-
-        // 랜덤 이미지를 설정
-        const randomIndex = Math.floor(Math.random() * ghostImages.length);
-        ghostImage.src = ghostImages[randomIndex];
-        ghostImage.style.display = "block";
-      } else {
-        warning.style.display = "none";
-        ghostImage.style.display = "none";
-      }
-    });
-  </script>
+    <div class="container">
+        <h1>귀신 사진 사이트</h1>
+        <div id="captcha">
+            <input type="checkbox" id="robotCheck">
+            <label for="robotCheck">로봇이 아닙니다.</label>
+        </div>
+        <button id="submitBtn" disabled>제출</button>
+        <div id="ghostImage" class="hidden">
+            <img src="ghost.jpg" alt="귀신 사진">
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
