@@ -3,23 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공포 사이트</title>
+    <title>로봇이 아닙니다</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #000;
+            text-align: center;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
         }
-        img {
-            max-width: 80%;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
+        #verifyBox {
+            margin-top: 20%;
+        }
+        #scaryImage {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: url('다운로드.jpeg') no-repeat center center;
+            background-size: cover;
+            z-index: 999;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <img src="https://example.com/ghost-image.jpg" alt="무서운 귀신 이미지">
+    <div id="verifyBox">
+        <h2>로봇이 아닙니다</h2>
+        <button onclick="showScaryImage()">확인</button>
+    </div>
+    <div id="scaryImage"></div>
+    <script>
+        function showScaryImage() {
+            document.getElementById('scaryImage').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
