@@ -50,9 +50,14 @@
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("verifyButton").addEventListener("click", function() {
-                document.getElementById("scaryImage").style.display = "block";
-            });
+            var button = document.getElementById("verifyButton");
+            if (button) {
+                button.addEventListener("click", function() {
+                    document.getElementById("scaryImage").style.display = "block";
+                });
+            } else {
+                console.error("버튼을 찾을 수 없습니다.");
+            }
         });
     </script>
 </body>
