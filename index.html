@@ -18,6 +18,10 @@
             font-size: 20px;
             padding: 10px 20px;
             cursor: pointer;
+            border: none;
+            background-color: white;
+            color: black;
+            font-weight: bold;
         }
         #scaryImage {
             display: none;
@@ -43,10 +47,12 @@
         <button id="verifyButton">확인</button>
     </div>
     <div id="scaryImage"></div>
-
+    
     <script>
-        document.getElementById("verifyButton").addEventListener("click", function() {
-            document.getElementById("scaryImage").style.display = "block";
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("verifyButton").addEventListener("click", function() {
+                document.getElementById("scaryImage").style.display = "block";
+            });
         });
     </script>
 </body>
