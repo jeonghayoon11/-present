@@ -14,6 +14,11 @@
         #verifyBox {
             margin-top: 20%;
         }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
         #scaryImage {
             display: none;
             width: 100vw;
@@ -35,13 +40,14 @@
 <body>
     <div id="verifyBox">
         <h2>로봇이 아닙니다</h2>
-        <button onclick="showScaryImage()">확인</button>
+        <button id="verifyButton">확인</button>
     </div>
     <div id="scaryImage"></div>
+
     <script>
-        function showScaryImage() {
-            document.getElementById('scaryImage').style.display = 'block';
-        }
+        document.getElementById("verifyButton").addEventListener("click", function() {
+            document.getElementById("scaryImage").style.display = "block";
+        });
     </script>
 </body>
 </html>
