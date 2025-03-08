@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로봇이 아닙니다</title>
+    <title>Scary Surprise</title>
     <style>
         body {
             text-align: center;
             background-color: black;
             color: white;
             font-family: Arial, sans-serif;
-        }
-        #verifyBox {
-            margin-top: 20%;
         }
         button {
             font-size: 20px;
@@ -22,6 +19,7 @@
             background-color: white;
             color: black;
             font-weight: bold;
+            margin-top: 20%;
         }
         #scaryImage {
             display: none;
@@ -42,22 +40,12 @@
     </style>
 </head>
 <body>
-    <div id="verifyBox">
-        <h2>로봇이 아닙니다</h2>
-        <button id="verifyButton">확인</button>
-    </div>
+    <button id="showScary">클릭하면 놀라운 일이!</button>
     <div id="scaryImage"></div>
     
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var button = document.getElementById("verifyButton");
-            if (button) {
-                button.addEventListener("click", function() {
-                    document.getElementById("scaryImage").style.display = "block";
-                });
-            } else {
-                console.error("버튼을 찾을 수 없습니다.");
-            }
+        document.getElementById("showScary").addEventListener("click", function() {
+            document.getElementById("scaryImage").style.display = "block";
         });
     </script>
 </body>
