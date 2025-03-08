@@ -1,52 +1,65 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scary Surprise</title>
-    <style>
-        body {
-            text-align: center;
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-        button {
-            font-size: 20px;
-            padding: 10px 20px;
-            cursor: pointer;
-            border: none;
-            background-color: white;
-            color: black;
-            font-weight: bold;
-            margin-top: 20%;
-        }
-        #scaryImage {
-            display: none;
-            width: 100vw;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: url('다운로드.jpeg') no-repeat center center;
-            background-size: cover;
-            z-index: 999;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scary Image Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+      background-color: #000;
+      color: #fff;
+    }
+    .ghost-image {
+      display: none;
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-    <button id="showScary">클릭하면 놀라운 일이!</button>
-    <div id="scaryImage"></div>
-    
-    <script>
-        document.getElementById("showScary").addEventListener("click", function() {
-            document.getElementById("scaryImage").style.display = "block";
-        });
-    </script>
+  <h1>나는 로봇이 아닙니다</h1>
+  <form id="captchaForm">
+    <label>
+      <input type="checkbox" id="notRobot" />
+      체크박스 클릭
+    </label>
+    <p id="warning" style="display: none; color: red;">무서운 이미지가 나타날 수 있습니다!</p>
+  </form>
+  <img id="ghostImage" class="ghost-image" src="" alt="Scary Ghost Image" />
+
+  <script>
+    const checkbox = document.getElementById("notRobot");
+    const warning = document.getElementById("warning");
+    const ghostImage = document.getElementById("ghostImage");
+
+    const ghostImages = [
+      "ghost1.jpg", // 여기에 무서운 이미지를 추가하세요
+      "ghost2.jpg",
+      "ghost3.jpg",
+    ];
+
+    checkbox.addEventListener("change", function() {
+      if (checkbox.checked) {
+        warning.style.display = "block";
+
+        // 랜덤 이미지를 설정
+        const randomIndex = Math.floor(Math.random() * ghostImages.length);
+        ghostImage.src = ghostImages[randomIndex];
+        ghostImage.style.display = "block";
+      } else {
+        warning.style.display = "none";
+        ghostImage.style.display = "none";
+      }
+    });
+  </script>
 </body>
 </html>
